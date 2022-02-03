@@ -96,6 +96,20 @@ public class Fracture : MonoBehaviour
         }
     }
 
+    public void TriggerFracture(float delay = 0)
+    {
+        if (!gameObject.activeSelf) return;
+        
+        if (delay <= 0)
+        {
+            ComputeFracture();
+        }
+        else
+        {
+            Invoke(nameof(ComputeFracture), delay);
+        }
+    }
+
     void Update()
     {
         if (triggerOptions.triggerType == TriggerType.Keyboard)
