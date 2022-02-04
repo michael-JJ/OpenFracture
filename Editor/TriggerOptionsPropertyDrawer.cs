@@ -14,6 +14,8 @@ public class TriggerOptionsPropertyDrawer : PropertyDrawer
         var minimumCollisionForce = property.FindPropertyRelative("minimumCollisionForce");
         var triggerType = property.FindPropertyRelative("triggerType");
         var triggerKey = property.FindPropertyRelative("triggerKey");
+        var setFragmentLayer = property.FindPropertyRelative("setFragmentLayer");
+        var fragmentLayer = property.FindPropertyRelative("fragmentLayer");
         var filterCollisionsByTag = property.FindPropertyRelative("filterCollisionsByTag");
         var triggerAllowedTags = property.FindPropertyRelative("triggerAllowedTags");
 
@@ -29,6 +31,14 @@ public class TriggerOptionsPropertyDrawer : PropertyDrawer
             {
                 case ((int)TriggerType.Collision):
                     EditorGUILayout.PropertyField(minimumCollisionForce);
+
+                    EditorGUILayout.PropertyField(setFragmentLayer, new GUIContent("Set fragment layer?"));
+                    if (setFragmentLayer.boolValue)
+                    {
+                        EditorGUILayout.EndFoldoutHeaderGroup();
+                        fragmentLayer.intValue = EditorGUILayout.LayerField("Layer", fragmentLayer.intValue);
+                    }
+
                     EditorGUILayout.PropertyField(filterCollisionsByTag, new GUIContent("Limit collisions to selected tags?"));
                     if (filterCollisionsByTag.boolValue)
                     {

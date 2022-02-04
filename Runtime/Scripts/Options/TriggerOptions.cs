@@ -18,6 +18,12 @@ public class TriggerOptions
     [Tooltip("Minimum contact collision force required to cause the object to fracture.")]
     public float minimumCollisionForce;
 
+    [Tooltip("If true, created fragments will be assigned its own layer.")]
+    public bool setFragmentLayer;
+
+    [Tooltip("Layer to put the fragments on.")]
+    public int fragmentLayer;
+
     [Tooltip("If true, only objects with the tags 'Allowed Tags' list will trigger a collision.")]
     public bool filterCollisionsByTag;
 
