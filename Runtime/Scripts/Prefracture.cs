@@ -95,6 +95,11 @@ public class Prefracture : MonoBehaviour
         obj.name = "Fragment";
         obj.tag = this.tag;
 
+        if (triggerOptions.setFragmentLayer)
+        {
+            obj.layer = triggerOptions.fragmentLayer;
+        }
+
         // Update mesh to the new sliced mesh
         obj.AddComponent<MeshFilter>();
 
