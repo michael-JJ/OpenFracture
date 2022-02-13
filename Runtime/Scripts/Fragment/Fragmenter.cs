@@ -259,7 +259,6 @@ public static class Fragmenter
             collider.sharedMaterial = fragment.GetComponent<Collider>().sharedMaterial;
 
             // Compute mass of the sliced object by dividing mesh bounds by density
-            var parentRigidBody = sourceObject.GetComponent<Rigidbody>();
             var rigidBody = fragment.GetComponent<Rigidbody>();
 
             var size = fragmentMesh.bounds.size;
